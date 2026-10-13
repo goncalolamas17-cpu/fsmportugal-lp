@@ -20,4 +20,6 @@ Profissionais por conta própria e pequenas equipas em Portugal que fazem orçam
 - Página inicial: https://fsmportugal.pt/
 - Perguntas frequentes: https://fsmportugal.pt/#faq
 - Preço: https://fsmportugal.pt/#preco
+- Blog: https://fsmportugal.pt/blog/
+- Como calcular o preço por hora: https://fsmportugal.pt/blog/como-calcular-preco-por-hora/
 - Contacto: pedir demonstração em https://fsmportugal.pt/#final

@@ -1,0 +1,33 @@
+
+/* Blog: usa o CSS da LP (lp.css) e acrescenta só o necessário */
+.artigo-head{padding-bottom:.4rem;}
+.artigo-head .crumbs{font-size:.85rem; color:var(--ink-soft); margin-bottom:.9rem;}
+.artigo-head .crumbs a{color:var(--ink-soft);}
+.artigo-head h1{font-size:clamp(1.9rem,4.6vw,2.7rem); margin:.7rem 0 .8rem; max-width:24ch;}
+.artigo-head .meta{color:var(--ink-soft); font-size:.9rem;}
+.artigo{max-width:720px; margin:0 auto; padding:2.4rem var(--pad) 3rem; font-size:1.0625rem; line-height:1.7;}
+.artigo .lead{font-size:1.15rem; color:var(--ink-soft);}
+.artigo h2{font-size:clamp(1.45rem,3.2vw,1.8rem); margin:2.6rem 0 .8rem;}
+.artigo p{margin:0 0 1rem;}
+.artigo ul,.artigo ol{padding-left:1.3rem; margin:0 0 1rem;}
+.artigo li{margin-bottom:.4rem;}
+.artigo a{color:var(--accent-ink);}
+.artigo .resposta{background:var(--tint); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:12px; padding:1.1rem 1.3rem; margin:1.6rem 0;}
+.artigo .resposta strong.t{display:block; font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:.35rem;}
+.artigo .formula{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1rem 1.2rem; font-weight:600; text-align:center; margin:1.2rem 0;}
+.artigo table{width:100%; border-collapse:collapse; margin:1.2rem 0; font-size:.97rem; background:var(--surface); border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+.artigo th,.artigo td{padding:.7rem .9rem; text-align:left; border-bottom:1px solid var(--line);}
+.artigo th{background:var(--tint-2); font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft);}
+.artigo tr:last-child td{border-bottom:0;}
+.artigo dl{margin:1rem 0;}
+.artigo dt{font-family:var(--serif); font-size:1.15rem; margin-top:1.3rem;}
+.artigo dd{margin:.3rem 0 0; color:var(--ink-soft);}
+.artigo .aviso{font-size:.88rem; color:var(--ink-soft); border-top:1px solid var(--line); padding-top:1rem; margin-top:2rem;}
+.final .wrap{padding-block:2.6rem;}
+.final .btn{background:#fff; color:var(--accent-ink);}
+.lista{display:grid; gap:1rem; margin-top:1.6rem;}
+.cartao{display:block; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:1.3rem 1.4rem; text-decoration:none; color:var(--ink);}
+.cartao:hover{border-color:var(--accent);}
+.cartao h2{margin:.3rem 0 .4rem; font-size:1.3rem;}
+.cartao p{margin:0; color:var(--ink-soft); font-size:.97rem;}
+.cartao .tag{font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-ink); font-weight:700;}

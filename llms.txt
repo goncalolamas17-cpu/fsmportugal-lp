@@ -1,0 +1,23 @@
+# FSM
+
+> FSM é um software de gestão para profissionais de obras e serviços em Portugal (eletricistas, canalizadores, pintores, empreiteiros, mecânicos e outros ofícios). Junta pipeline de clientes, calendário, tarefas e orçamentos, e mostra o lucro real de cada trabalho.
+
+## O que faz
+- Pipeline de clientes e oportunidades, do primeiro contacto ao pagamento.
+- Calendário de trabalhos com horas por profissional.
+- Orçamentos em PDF com logótipo e contactos, partilháveis por link.
+- Cálculo do valor da hora a partir dos custos fixos e do objetivo mensal.
+- Lucro real por trabalho: valor cobrado menos materiais, outros custos e tempo de execução.
+- Funciona no telemóvel e no computador, instalável no ecrã principal, com notificações.
+
+## Para quem é
+Profissionais por conta própria e pequenas equipas em Portugal que fazem orçamentos e trabalhos em casas, obras e oficinas.
+
+## Preço
+15 € + IVA por utilizador por mês, mais 75 € + IVA de configuração inicial. Garantia de 30 dias.
+
+## Ligações
+- Página inicial: https://fsmportugal.pt/
+- Perguntas frequentes: https://fsmportugal.pt/#faq
+- Preço: https://fsmportugal.pt/#preco
+- Contacto: pedir demonstração em https://fsmportugal.pt/#final

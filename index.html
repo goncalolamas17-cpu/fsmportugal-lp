@@ -966,6 +966,19 @@
   var elBody = document.querySelector("[data-f-body]");
   var elShot = document.querySelector("[data-f-shot]");
   var elTapHint = document.querySelector("[data-tap-hint]");
+  var preloaded = [];
+  function preloadShots(){
+    FEATURES.forEach(function(f){
+      [f.imgMobile, f.imgMobileNav].forEach(function(src){
+        if (!src) return;
+        var im = new Image();
+        im.src = src;
+        preloaded.push(im);
+      });
+    });
+  }
+  if (document.readyState === "complete") preloadShots();
+  else window.addEventListener("load", preloadShots);
   FEATURES.forEach(function(f, i){
     var b = document.createElement("button");
     b.type = "button"; b.role = "tab"; b.textContent = f.tab;

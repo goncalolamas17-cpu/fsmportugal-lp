@@ -150,8 +150,8 @@
 
 
   .shot.is-mobile{aspect-ratio:auto; background:transparent; border:none; box-shadow:none; padding:1rem 0; min-height:0;}
-  .phone-frame{width:min(380px,90%,max(200px,calc((100svh - 6rem)*.4663))); margin-inline:auto; aspect-ratio:9/19.3; background:#111816; border-radius:34px; padding:9px; box-shadow:0 20px 44px -18px rgba(11,59,55,.4); position:relative;}
-  @media (max-width:480px){ .phone-frame{width:min(320px,92%,max(200px,calc((100svh - 6rem)*.4663)));} }
+  .phone-frame{width:min(380px,90%,max(200px,calc((100svh - 10.5rem)*.4663))); margin-inline:auto; aspect-ratio:9/19.3; background:#111816; border-radius:34px; padding:9px; box-shadow:0 20px 44px -18px rgba(11,59,55,.4); position:relative;}
+  @media (max-width:480px){ .phone-frame{width:min(320px,92%,max(200px,calc((100svh - 10.5rem)*.4663)));} }
   .phone-frame::before{content:""; position:absolute; top:9px; left:50%; transform:translateX(-50%); width:64px; height:16px; background:#111816; border-radius:0 0 10px 10px; z-index:2;}
   .phone-screen{position:relative; width:100%; height:100%; border-radius:24px; overflow:hidden; background:var(--tint-2); display:flex; align-items:center; justify-content:center;}
   .phone-screen img{width:100%; height:100%; object-fit:cover; display:block;}
@@ -292,6 +292,7 @@
   .quem .pill .dot{width:7px; height:7px; border-radius:50%; background:var(--accent-fill); flex:none;}
   .quem h2{font-size:clamp(1.9rem,4vw,2.5rem); margin:1.1rem 0 1.2rem;}
   .quem p.bio{color:var(--ink-soft); max-width:52ch; font-size:1.02rem; margin-bottom:.9rem;}
+  .quem p.bio strong{color:var(--ink); font-weight:700;}
   .quem .btn{margin-top:1.1rem;}
   .quem-photo{position:relative; border-radius:16px; overflow:hidden; aspect-ratio:3/4; max-width:420px; margin-inline:auto; box-shadow:0 20px 44px -20px rgba(0,0,0,.45);}
   @media (min-width:860px){ .quem-photo{margin-inline:0; margin-left:auto;} }
@@ -398,7 +399,7 @@
     .como ol{margin-top:1.4rem;}
     .como-photo{aspect-ratio:16/10;}
     .tcard-photo{aspect-ratio:2/1;}
-    .phone-frame{width:min(280px,82%,max(200px,calc((100svh - 6rem)*.4663)));}
+    .phone-frame{width:min(280px,82%,max(200px,calc((100svh - 10.5rem)*.4663)));}
     .quem-grid{gap:1.4rem;}
     .quem-photo{aspect-ratio:4/3; width:100%; max-width:100%;}
     .quem-photo img{object-position:center 10%;}
@@ -664,38 +665,15 @@
     <div class="quem-text">
       <span class="pill"><span class="dot"></span>Sobre o FSM</span>
       <h2>Quem somos?</h2>
-      <p class="bio">Sou o Gonçalo. Cresci numa família de trabalho de terreno: o meu pai é pedreiro, os meus dois avós foram pedreiros e tenho cinco tios pedreiros. O meu irmão é eletricista e canalizador.</p>
-      <p class="bio">Desde cedo vi qual era o maior problema de todos — não era o trabalho, era a desorganização. Clientes esquecidos, informação perdida, orçamentos que ninguém sabia se tinham sido enviados. Chegavam a casa depois de quase 12 horas de trabalho, muitas vezes ainda com biscates a seguir, e nunca descansavam a sério: ficava sempre a sensação de se terem esquecido de alguma coisa, porque não a tinham registado nem enviado a ninguém.</p>
-      <p class="bio">Foi para acabar com essa preocupação que construí o FSM. Resolvi isto primeiro para eles — e depois percebi que fazia sentido trazer a mesma solução a outros negócios de trabalho de terreno, não só o da família.</p>
+      <p class="bio">Sou o Gonçalo. Cresci numa <strong>família de trabalho de terreno</strong>, sobretudo pedreiros.</p>
+      <p class="bio">Desde cedo vi qual era o maior problema de todos — <strong>não era o trabalho, era a desorganização</strong>. <strong>Clientes esquecidos, informação perdida, orçamentos que ninguém sabia se tinham sido enviados.</strong> Chegavam a casa depois de quase 12 horas de trabalho, muitas vezes ainda com biscates a seguir, e <strong>nunca descansavam a sério</strong>: ficava sempre a sensação de se terem esquecido de alguma coisa, porque não a tinham registado nem enviado a ninguém.</p>
+      <p class="bio">Foi para <strong>acabar com essa preocupação</strong> que construí o FSM. Resolvi isto primeiro para eles — e depois percebi que fazia sentido <strong>trazer a mesma solução a outros negócios de trabalho de terreno</strong>, não só o da família.</p>
       <a class="btn btn-primary" href="#final">Agendar uma conversa</a>
     </div>
     <div class="quem-photo">
       <img loading="lazy" decoding="async" src="/img/7a827841fb22.jpg" alt="Gonçalo Lamas">
       <span class="tag">Gonçalo Lamas</span>
     </div>
-  </div>
-</section>
-
-<section class="faq" id="faq">
-  <div class="wrap">
-    <span class="eyebrow">Perguntas frequentes</span>
-    <h2 style="margin-top:.6rem;">O que costumam perguntar.</h2>
-    <dl>
-      <dt>Que programa posso usar para fazer orçamentos de obras?</dt> <dd>O FSM cria o orçamento a partir dos custos reais do trabalho: materiais, horas e outras despesas. Sai em PDF com o teu logótipo e contactos, e podes enviá-lo ao cliente por link.</dd> <dt>Como calculo o preço à hora do meu trabalho?</dt> <dd>Indicas os custos fixos do mês e quanto queres ganhar, e o FSM sugere o valor da hora com base no teu horário de trabalho. Podes ajustá-lo em cada orçamento.</dd> <dt>Serve para eletricistas, canalizadores, pintores, empreiteiros e mecânicos?</dt> <dd>Sim. É feito para quem trabalha por conta própria ou em pequenas equipas, em obras e serviços: eletricistas, canalizadores, pintores, empreiteiros e remodelações, mecânicos, jardineiros, serralheiros e outros ofícios.</dd> <dt>Funciona no telemóvel?</dt> <dd>Sim. Funciona no telemóvel e no computador, e podes instalá-lo no ecrã principal como uma app. Recebes avisos dos teus trabalhos e orçamentos.</dd> <dt>Preciso de perceber de computadores?</dt>
-      <dd>Não. Se usas o telemóvel, usas isto. É esse o ponto.</dd>
-      <dt>A minha equipa tem de aprender a usar?</dt>
-      <dd>Cada pessoa só vê o que precisa para o trabalho dela. Não há formação.</dd>
-      <dt>E a minha equipa, vai mesmo usar isto?</dt>
-      <dd>Cada pessoa só vê o calendário e as tarefas dela — não o negócio todo. Não é uma ferramenta de gestão que lhes é imposta, é só o trabalho do dia.</dd>
-      <dt>Os meus dados ficam guardados?</dt>
-      <dd>Sim. Guardados, seguros e só teus. Podes exportar quando quiseres.</dd>
-      <dt>Posso pôr o meu logótipo nos orçamentos?</dt>
-      <dd>Sim. O orçamento que o cliente recebe leva o teu nome, logótipo e contactos.</dd>
-      <dt>E se já uso Excel?</dt>
-      <dd>Passamos o que já tens para a app no arranque. Não começas do zero.</dd>
-      <dt>Já tentei uma app antes e não pegou.</dt>
-      <dd>Normalmente falha porque pede uma sessão de "organização" à parte, e isso nunca acontece. Aqui o registo é feito no momento — antes de guardares as ferramentas, escreves o que fizeste. Sem sessão extra nenhuma.</dd>
-    </dl>
   </div>
 </section>
 
@@ -740,6 +718,29 @@
       <p>Abrimos o WhatsApp com os teus dados. Carrega em enviar e respondo-te para combinarmos os 20 minutos.</p>
       <p style="margin:0;">Não abriu? <a class="inline" id="lead-ok-link" href="#" target="_blank" rel="noopener">Abrir o WhatsApp</a></p>
     </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <span class="eyebrow">Perguntas frequentes</span>
+    <h2 style="margin-top:.6rem;">O que costumam perguntar.</h2>
+    <dl>
+      <dt>Que programa posso usar para fazer orçamentos de obras?</dt> <dd>O FSM cria o orçamento a partir dos custos reais do trabalho: materiais, horas e outras despesas. Sai em PDF com o teu logótipo e contactos, e podes enviá-lo ao cliente por link.</dd> <dt>Como calculo o preço à hora do meu trabalho?</dt> <dd>Indicas os custos fixos do mês e quanto queres ganhar, e o FSM sugere o valor da hora com base no teu horário de trabalho. Podes ajustá-lo em cada orçamento.</dd> <dt>Serve para eletricistas, canalizadores, pintores, empreiteiros e mecânicos?</dt> <dd>Sim. É feito para quem trabalha por conta própria ou em pequenas equipas, em obras e serviços: eletricistas, canalizadores, pintores, empreiteiros e remodelações, mecânicos, jardineiros, serralheiros e outros ofícios.</dd> <dt>Funciona no telemóvel?</dt> <dd>Sim. Funciona no telemóvel e no computador, e podes instalá-lo no ecrã principal como uma app. Recebes avisos dos teus trabalhos e orçamentos.</dd> <dt>Preciso de perceber de computadores?</dt>
+      <dd>Não. Se usas o telemóvel, usas isto. É esse o ponto.</dd>
+      <dt>A minha equipa tem de aprender a usar?</dt>
+      <dd>Cada pessoa só vê o que precisa para o trabalho dela. Não há formação.</dd>
+      <dt>E a minha equipa, vai mesmo usar isto?</dt>
+      <dd>Cada pessoa só vê o calendário e as tarefas dela — não o negócio todo. Não é uma ferramenta de gestão que lhes é imposta, é só o trabalho do dia.</dd>
+      <dt>Os meus dados ficam guardados?</dt>
+      <dd>Sim. Guardados, seguros e só teus. Podes exportar quando quiseres.</dd>
+      <dt>Posso pôr o meu logótipo nos orçamentos?</dt>
+      <dd>Sim. O orçamento que o cliente recebe leva o teu nome, logótipo e contactos.</dd>
+      <dt>E se já uso Excel?</dt>
+      <dd>Passamos o que já tens para a app no arranque. Não começas do zero.</dd>
+      <dt>Já tentei uma app antes e não pegou.</dt>
+      <dd>Normalmente falha porque pede uma sessão de "organização" à parte, e isso nunca acontece. Aqui o registo é feito no momento — antes de guardares as ferramentas, escreves o que fizeste. Sem sessão extra nenhuma.</dd>
+    </dl>
   </div>
 </section>
 

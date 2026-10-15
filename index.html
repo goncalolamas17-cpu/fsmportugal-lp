@@ -1264,6 +1264,28 @@
     if (chip && tabs.scrollWidth > tabs.clientWidth) tabs.scrollTo({left: chip.offsetLeft - 16, behavior: "smooth"});
   }
   show(0);
+  // Altura do bloco de texto = a do texto mais comprido, para o telemóvel não se mexer ao mudar de botão.
+  var elPane = document.querySelector(".dpane");
+  function fixarAlturaTexto(){
+    elPane.style.minHeight = "";
+    var w = elPane.getBoundingClientRect().width;
+    if (!w || window.innerWidth >= 860) return;
+    var c = elPane.cloneNode(true);
+    c.removeAttribute("id");
+    c.setAttribute("aria-hidden", "true");
+    c.style.cssText = "position:absolute; visibility:hidden; pointer-events:none; left:0; top:0; margin:0; width:" + w + "px;";
+    elPane.parentNode.appendChild(c);
+    var t = c.querySelector("[data-f-title]"), b = c.querySelector("[data-f-body]"), max = 0;
+    FEATURES.forEach(function(f){
+      t.textContent = f.title; b.textContent = f.body;
+      max = Math.max(max, c.getBoundingClientRect().height);
+    });
+    c.remove();
+    elPane.style.minHeight = Math.ceil(max) + "px";
+  }
+  fixarAlturaTexto();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fixarAlturaTexto);
+  window.addEventListener("resize", fixarAlturaTexto);
 
   // Routing simples por hash: #privacidade / #cookies / #termos mostram a página legal,
   // qualquer outro valor mostra o site principal.

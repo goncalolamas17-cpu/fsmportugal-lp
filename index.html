@@ -311,6 +311,17 @@
   .faq{padding:clamp(3rem,7vw,4.5rem) 0; border-top:1px solid var(--line);}
   .faq .wrap{max-width:760px;}
   .faq h2{font-size:clamp(1.6rem,3.4vw,2.1rem);}
+  .faq-list{margin:1.6rem 0 0; border-bottom:1px solid var(--line);}
+  .faq details.qa{border-top:1px solid var(--line);}
+  .faq summary{list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:1rem; font-family:var(--serif); font-weight:500; font-size:1.1rem; line-height:1.3; padding:1.05rem 0;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:""; flex:none; width:9px; height:9px; border-right:2px solid var(--accent); border-bottom:2px solid var(--accent); transform:rotate(45deg) translateY(-2px); transition:transform .2s ease;}
+  .faq details[open] summary::after{transform:rotate(-135deg) translateY(-2px);}
+  .faq summary:hover{color:var(--accent-ink);}
+  .faq .ans{padding:0 0 1.1rem; color:var(--ink-soft); max-width:58ch;}
+  .faq .ans p{margin:0 0 .6rem;}
+  .faq .ans p:last-child{margin:0;}
+  @media (max-width:600px){ .faq summary{font-size:1rem; padding:.95rem 0;} .faq .ans{font-size:.95rem;} }
   .faq dl{margin:1.6rem 0 0;}
   .faq dt{font-family:var(--serif); font-weight:500; font-size:1.1rem; padding:1.1rem 0 .35rem; border-top:1px solid var(--line);}
   .faq dd{margin:0 0 1rem; color:var(--ink-soft); max-width:58ch;}
@@ -812,22 +823,21 @@
   <div class="wrap">
     <span class="eyebrow">Perguntas frequentes</span>
     <h2 style="margin-top:.6rem;">O que costumam perguntar.</h2>
-    <dl>
-      <dt>Que programa posso usar para fazer orçamentos de obras?</dt> <dd>O FSM cria o orçamento a partir dos custos reais do trabalho: materiais, horas e outras despesas. Sai em PDF com o teu logótipo e contactos, e podes enviá-lo ao cliente por link.</dd> <dt>Como calculo o preço à hora do meu trabalho?</dt> <dd>Indicas os custos fixos do mês e quanto queres ganhar, e o FSM sugere o valor da hora com base no teu horário de trabalho. Podes ajustá-lo em cada orçamento.</dd> <dt>Serve para eletricistas, canalizadores, pintores, empreiteiros e mecânicos?</dt> <dd>Sim. É feito para quem trabalha por conta própria ou em pequenas equipas, em obras e serviços: eletricistas, canalizadores, pintores, empreiteiros e remodelações, mecânicos, jardineiros, serralheiros e outros ofícios.</dd> <dt>Trabalho sozinho, com biscates. Serve para mim?</dt> <dd>Sim. É feito para quem trabalha por conta própria, com biscates ou obras pequenas. Pagas 15€/mês (+ IVA) por utilizador, por isso sozinho é só um utilizador.</dd> <dt>E se tiver um ou dois ajudantes?</dt> <dd>Cada pessoa tem o seu acesso e só vê o calendário e as tarefas dela, não o negócio todo. Cada utilizador paga 15€/mês (+ IVA).</dd> <dt>Funciona no telemóvel?</dt> <dd>Sim. Funciona no telemóvel e no computador, e podes instalá-lo no ecrã principal como uma app. Recebes avisos dos teus trabalhos e orçamentos.</dd> <dt>Preciso de perceber de computadores?</dt>
-      <dd>Não. Se usas o telemóvel, usas isto. É esse o ponto.</dd>
-      <dt>A minha equipa tem de aprender a usar?</dt>
-      <dd>Cada pessoa só vê o que precisa para o trabalho dela. Não há formação.</dd>
-      <dt>E a minha equipa, vai mesmo usar isto?</dt>
-      <dd>Cada pessoa só vê o calendário e as tarefas dela — não o negócio todo. Não é uma ferramenta de gestão que lhes é imposta, é só o trabalho do dia.</dd>
-      <dt>Os meus dados ficam guardados?</dt>
-      <dd>Sim. Guardados, seguros e só teus. Podes exportar quando quiseres.</dd>
-      <dt>Posso pôr o meu logótipo nos orçamentos?</dt>
-      <dd>Sim. O orçamento que o cliente recebe leva o teu nome, logótipo e contactos.</dd>
-      <dt>E se já uso Excel?</dt>
-      <dd>Passamos o que já tens para a app no arranque. Não começas do zero.</dd>
-      <dt>Já tentei uma app antes e não pegou.</dt>
-      <dd>Normalmente falha porque pede uma sessão de "organização" à parte, e isso nunca acontece. Aqui o registo é feito no momento — antes de guardares as ferramentas, escreves o que fizeste. Sem sessão extra nenhuma.</dd>
-    </dl>
+    <div class="faq-list">
+      <details class="qa"><summary>Que programa posso usar para fazer orçamentos de obras?</summary><div class="ans"><p>O FSM cria o orçamento a partir dos custos reais do trabalho: materiais, horas e outras despesas. Sai em PDF com o teu logótipo e contactos, e podes enviá-lo ao cliente por link.</p></div></details>
+      <details class="qa"><summary>Como calculo o preço à hora do meu trabalho?</summary><div class="ans"><p>Indicas os custos fixos do mês e quanto queres ganhar, e o FSM sugere o valor da hora com base no teu horário de trabalho. Podes ajustá-lo em cada orçamento.</p></div></details>
+      <details class="qa"><summary>Serve para eletricistas, canalizadores, pintores, empreiteiros e mecânicos?</summary><div class="ans"><p>Sim. É feito para quem trabalha por conta própria ou em pequenas equipas, em obras e serviços: eletricistas, canalizadores, pintores, empreiteiros e remodelações, mecânicos, jardineiros, serralheiros e outros ofícios.</p></div></details>
+      <details class="qa"><summary>Trabalho sozinho, com biscates. Serve para mim?</summary><div class="ans"><p>Sim. É feito para quem trabalha por conta própria, com biscates ou obras pequenas. Pagas 15€/mês (+ IVA) por utilizador, por isso sozinho é só um utilizador.</p></div></details>
+      <details class="qa"><summary>E se tiver um ou dois ajudantes?</summary><div class="ans"><p>Cada pessoa tem o seu acesso e só vê o calendário e as tarefas dela, não o negócio todo. Cada utilizador paga 15€/mês (+ IVA).</p></div></details>
+      <details class="qa"><summary>Funciona no telemóvel?</summary><div class="ans"><p>Sim. Funciona no telemóvel e no computador, e podes instalá-lo no ecrã principal como uma app. Recebes avisos dos teus trabalhos e orçamentos.</p></div></details>
+      <details class="qa"><summary>Preciso de perceber de computadores?</summary><div class="ans"><p>Não. Se usas o telemóvel, usas isto. É esse o ponto.</p></div></details>
+      <details class="qa"><summary>A minha equipa tem de aprender a usar?</summary><div class="ans"><p>Cada pessoa só vê o que precisa para o trabalho dela. Não há formação.</p></div></details>
+      <details class="qa"><summary>E a minha equipa, vai mesmo usar isto?</summary><div class="ans"><p>Cada pessoa só vê o calendário e as tarefas dela — não o negócio todo. Não é uma ferramenta de gestão que lhes é imposta, é só o trabalho do dia.</p></div></details>
+      <details class="qa"><summary>Os meus dados ficam guardados?</summary><div class="ans"><p>Sim. Guardados, seguros e só teus. Podes exportar quando quiseres.</p></div></details>
+      <details class="qa"><summary>Posso pôr o meu logótipo nos orçamentos?</summary><div class="ans"><p>Sim. O orçamento que o cliente recebe leva o teu nome, logótipo e contactos.</p></div></details>
+      <details class="qa"><summary>E se já uso Excel?</summary><div class="ans"><p>Passamos o que já tens para a app no arranque. Não começas do zero.</p></div></details>
+      <details class="qa"><summary>Já tentei uma app antes e não pegou.</summary><div class="ans"><p>Normalmente falha porque pede uma sessão de "organização" à parte, e isso nunca acontece. Aqui o registo é feito no momento — antes de guardares as ferramentas, escreves o que fizeste. Sem sessão extra nenhuma.</p></div></details>
+    </div>
   </div>
 </section>
 

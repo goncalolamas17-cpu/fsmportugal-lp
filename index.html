@@ -396,6 +396,31 @@
   .wa-float svg{width:29px; height:29px; fill:#fff;}
   @media (max-width:640px){ .wa-float{right:1rem; bottom:1rem; width:52px; height:52px;} .wa-float svg{width:26px; height:26px;} }
 
+
+  /* botões em telemóvel (ajuste 2026-10-15) */
+  .t-short{display:none;}
+  @media (max-width:480px){
+    .nav .t-long{display:none;} .nav .t-short{display:inline;}
+    .nav .btn-entrar{border-color:transparent!important; background:transparent; padding-inline:.55rem; font-weight:500; color:var(--ink-soft); opacity:1; text-decoration:underline; text-underline-offset:3px;}
+    .nav .btn-primary.btn-sm{padding:.5rem .95rem; font-size:.85rem; font-weight:700;}
+  }
+  @media (max-width:640px){
+    .tabs{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 44px),transparent); mask-image:linear-gradient(to right,#000 calc(100% - 44px),transparent);}
+    .tabs.at-end{-webkit-mask-image:none; mask-image:none;}
+  }
+  @media (max-width:600px){
+    .cookiebar{padding:.85rem var(--pad) calc(.85rem + env(safe-area-inset-bottom)); gap:.7rem;}
+    .cookiebar p{flex:1 1 100%; font-size:.82rem;}
+    .cookiebar .actions{width:100%; display:grid; grid-template-columns:1fr 1fr; gap:.6rem;}
+    .cookiebar .actions .btn{width:100%; min-height:46px; font-size:.9rem;}
+    .cookiebar #btn-recusar{order:1; border-color:rgba(255,255,255,.7); font-weight:700;}
+    .cookiebar #btn-aceitar{order:2;}
+    .cookiebar #btn-personalizar{order:3; grid-column:1/-1; border-color:transparent; text-decoration:underline; text-underline-offset:3px; min-height:40px; font-weight:500;}
+    .cookiebar .cookie-prefs .actions{display:block;}
+  }
+  .wa-float{bottom:calc(1.25rem + var(--cb-h,0px));}
+  @media (max-width:640px){ .wa-float{bottom:calc(1rem + var(--cb-h,0px) + env(safe-area-inset-bottom)); width:48px; height:48px; transition:bottom .2s ease, transform .15s ease;} .wa-float svg{width:24px; height:24px;} }
+
   /* mobile: elementos e espaçamentos mais compactos */
   @media (max-width:600px){
     .como, .destaque, .transf, .video-sec, .pricing, .quem, .faq{padding-top:2.25rem; padding-bottom:2.25rem;}
@@ -431,8 +456,8 @@
       <a class="lnk" href="#destaque">Funcionalidades</a>
       <a class="lnk" href="#preco">Preço</a>
       <a class="lnk" href="#quem-somos">Quem somos</a> <a class="lnk" href="/blog/">Blog</a>
-      <a class="btn btn-ghost btn-sm" href="https://fsm-portugal.lovable.app/auth" style="border-color:var(--line);">Entrar</a>
-      <a class="btn btn-primary btn-sm" href="#final">Marcar demonstração</a>
+      <a class="btn btn-ghost btn-sm btn-entrar" href="https://fsm-portugal.lovable.app/auth" style="border-color:var(--line);">Entrar</a>
+      <a class="btn btn-primary btn-sm" href="#final"><span class="t-long">Marcar demonstração</span><span class="t-short">Demonstração</span></a>
     </nav>
   </div>
 </header>
@@ -994,6 +1019,10 @@
     b.addEventListener("click", function(){ show(i); });
     tabs.appendChild(b);
   });
+  function marcarFimTabs(){ tabs.classList.toggle("at-end", tabs.scrollLeft + tabs.clientWidth >= tabs.scrollWidth - 4); }
+  tabs.addEventListener("scroll", marcarFimTabs, { passive: true });
+  window.addEventListener("resize", marcarFimTabs);
+  marcarFimTabs();
   var panCleanups = [];
   function teardownPans(){
     panCleanups.forEach(function(fn){ fn(); });
@@ -1287,8 +1316,15 @@
     barra.hidden = true;
     prefs.classList.remove("open");
   }
+  function ajustarWa(){
+    document.documentElement.style.setProperty("--cb-h", barra.hidden ? "0px" : barra.offsetHeight + "px");
+  }
+  new MutationObserver(ajustarWa).observe(barra, { attributes: true });
+  window.addEventListener("resize", ajustarWa);
+  if (window.ResizeObserver) new ResizeObserver(ajustarWa).observe(barra);
   var atual = lerConsentimento();
   if (!atual) barra.hidden = false;
+  ajustarWa();
 
   document.getElementById("btn-aceitar").addEventListener("click", function(){
     guardarConsentimento({ analytics: true, ts: Date.now() });

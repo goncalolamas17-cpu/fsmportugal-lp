@@ -459,6 +459,21 @@
     .tabs{flex-wrap:wrap; overflow:visible; justify-content:center; gap:.45rem; margin-inline:0; padding:0 0 .4rem; -webkit-mask-image:none; mask-image:none;}
     .tabs button{padding:.5rem .85rem; font-size:.86rem;}
   }
+  /* telemóvel: botões à esquerda, telemóvel à direita, texto por cima */
+  @media (max-width:640px){
+    .destaque-grid{grid-template-columns:104px minmax(0,1fr); column-gap:.7rem; row-gap:0; align-items:start;}
+    .destaque-left, .dgrid, .destaque-right{display:contents;}
+    .destaque-left .eyebrow{grid-column:1/-1; grid-row:1; text-align:center;}
+    .destaque h2.head{grid-column:1/-1; grid-row:2; margin:.5rem auto 1.2rem;}
+    .dpane{grid-column:1/-1; grid-row:3; margin-bottom:1.1rem;}
+    .dpane h3{min-height:2.4em; margin-bottom:.4rem;}
+    .dpane p{margin-bottom:0; min-height:4.8em;}
+    .tabs{grid-column:1; grid-row:4; flex-direction:column; flex-wrap:nowrap; justify-content:flex-start; overflow:visible; gap:.4rem; margin:0; padding:0;}
+    .tabs button{white-space:normal; text-align:left; width:100%; font-size:.8rem; line-height:1.2; padding:.6rem .65rem; scroll-snap-align:none;}
+    .destaque-right .shot{grid-column:2; grid-row:4; min-width:0;}
+    .shot.is-mobile{padding:0;}
+    .tap-hint{grid-column:1/-1; grid-row:5;}
+  }
 </style>
 
 <div id="site">

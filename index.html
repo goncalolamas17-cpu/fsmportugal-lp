@@ -146,6 +146,13 @@
   /* barra de navegação do telemóvel fixa por cima do conteúdo que desliza */
   .phone-navbar{position:absolute; left:0; bottom:0; width:100%; aspect-ratio:780/148; z-index:5; overflow:hidden;}
   .phone-navbar img{width:100%; height:100%; display:block; pointer-events:none; -webkit-user-drag:none; user-select:none;}
+  /* telemóvel da LP: fundo igual ao da app, sem cortar as laterais, e barra de navegação desenhada em HTML */
+  .phone-screen.pan-wrap{background:#f8fafc;}
+  .phone-navbar{container-type:inline-size; background:#fff; border-top:1px solid #e5e7eb; display:grid; grid-template-columns:repeat(6,1fr); align-items:center;}
+  .phone-navbar .nv{display:flex; flex-direction:column; align-items:center; gap:2.4cqw; color:#6b7280; font-size:2.8cqw; font-weight:600; line-height:1; white-space:nowrap; letter-spacing:-.01em; font-family:var(--sans); pointer-events:none;}
+  .phone-navbar .nv svg{width:6.4cqw; height:6.4cqw; stroke:currentColor; fill:none; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round;}
+  .phone-navbar .nv.on{color:#2bb3a3;}
+
   .phone-navbar .nav-hotspot{height:100%;}
   @keyframes tapRipple{to{transform:translate(-50%,-50%) scale(1); opacity:0;}}
 
@@ -1012,16 +1019,7 @@
       var renderedH = renderedW * (nh / nw);
       var reservedPx = reserveBottomNatural * (cw / nw);
       var availH = ch - reservedPx;
-      if (!centered){
-        if (renderedH < availH){
-          var k = availH / renderedH;
-          renderedW *= k; renderedH = availH;
-          img.style.width = renderedW + "px";
-          img.style.left = (-(renderedW - cw) / 2) + "px";
-        } else {
-          img.style.width = ""; img.style.left = "";
-        }
-      }
+      if (!centered){ img.style.width = ""; img.style.left = ""; }
       maxOffset = Math.max(0, renderedH - availH);
       offset = Math.min(offset, maxOffset);
       apply();
@@ -1096,13 +1094,30 @@
     for (var i = 0; i < FEATURES.length; i++){ if (FEATURES[i].tab === name) return i; }
     return null;
   }
-  function buildNavbar(parent, navImgSrc, onTap){
+  function desenharBarra(bar, src){
+ var ATIVO = {"/img/3192f4f54ed9.jpg":0,"/img/be085c439377.jpg":1,"/img/8ecd66586705.jpg":2,"/img/9762fd70f835.jpg":3,"/img/3f58215e699c.jpg":4};
+ var ativo = (src in ATIVO) ? ATIVO[src] : -1;
+ var ITENS = [
+  ["Painel",'<rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/>'],
+  ["Pipeline",'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 7v7"/><path d="M12 7v4"/><path d="M16 7v9"/>'],
+  ["Tarefas",'<path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/>'],
+  ["Agenda",'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>'],
+  ["Orçamentos",'<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>'],
+  ["Conta",'<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>']
+ ];
+ ITENS.forEach(function(it, i){
+  var d = document.createElement("div");
+  d.className = "nv" + (i === ativo ? " on" : "");
+  d.setAttribute("aria-hidden", "true");
+  d.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + it[1] + '</svg><span>' + it[0] + '</span>';
+  bar.appendChild(d);
+ });
+ }
+ function buildNavbar(parent, navImgSrc, onTap){
     var bar = document.createElement("div");
     bar.className = "phone-navbar";
     bar.addEventListener("pointerdown", function(e){ e.stopPropagation(); });
-    var navImg = document.createElement("img");
-    navImg.src = navImgSrc; navImg.alt = "Barra de navegação";
-    bar.appendChild(navImg);
+    desenharBarra(bar, navImgSrc);
     var cols = [
       {target:tabIndex("Painel")}, {target:tabIndex("Clientes")}, {target:tabIndex("Tarefas")}, {target:tabIndex("Agenda")}, {target:tabIndex("Orçamentos")}, {target:null}
     ];

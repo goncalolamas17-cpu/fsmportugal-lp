@@ -459,6 +459,8 @@
     .tabs{flex-wrap:wrap; overflow:visible; justify-content:center; gap:.45rem; margin-inline:0; padding:0 0 .4rem; -webkit-mask-image:none; mask-image:none;}
     .tabs button{padding:.5rem .85rem; font-size:.86rem;}
   }
+  .so-mob{display:none;}
+  @media (max-width:600px){ .so-desk{display:none;} .so-mob{display:inline;} }
   /* telemóvel: quem somos com a foto à direita */
   @media (max-width:600px){
     .quem-grid{grid-template-columns:minmax(0,1fr) 116px; column-gap:1rem; row-gap:0; align-items:start;}
@@ -795,8 +797,8 @@
       <span class="pill"><span class="dot"></span>Sobre o FSM</span>
       <h2>Quem somos?</h2>
       <p class="bio">Sou o Gonçalo. Cresci numa <strong>família de trabalho de terreno</strong>, sobretudo pedreiros.</p>
-      <p class="bio">Desde cedo vi qual era o maior problema de todos — <strong>não era o trabalho, era a desorganização</strong>. <strong>Clientes esquecidos, informação perdida, orçamentos que ninguém sabia se tinham sido enviados.</strong> Chegavam a casa depois de quase 12 horas de trabalho, muitas vezes ainda com biscates a seguir, e <strong>nunca descansavam a sério</strong>: ficava sempre a sensação de se terem esquecido de alguma coisa, porque não a tinham registado nem enviado a ninguém.</p>
-      <p class="bio">Foi para <strong>acabar com essa preocupação</strong> que construí o FSM. Resolvi isto primeiro para eles — e depois percebi que fazia sentido <strong>trazer a mesma solução a outros negócios de trabalho de terreno</strong>, não só o da família.</p>
+      <p class="bio">Desde cedo vi qual era o maior problema de todos — <strong>não era o trabalho, era a desorganização</strong>. <strong>Clientes esquecidos, informação perdida, orçamentos que ninguém sabia se tinham sido enviados.</strong><span class="so-desk"> Chegavam a casa depois de quase 12 horas de trabalho, muitas vezes ainda com biscates a seguir, e <strong>nunca descansavam a sério</strong>: ficava sempre a sensação de se terem esquecido de alguma coisa, porque não a tinham registado nem enviado a ninguém.</span></p>
+      <p class="bio">Foi para <strong>acabar com essa preocupação</strong> que construí o FSM.<span class="so-desk"> Resolvi isto primeiro para eles — e depois percebi que fazia sentido <strong>trazer a mesma solução a outros negócios de trabalho de terreno</strong>, não só o da família.</span><span class="so-mob"> Primeiro para a minha família, agora para <strong>outros negócios de trabalho de terreno</strong>.</span></p>
       <a class="btn btn-primary" href="#final">Agendar uma conversa</a>
     </div>
     <div class="quem-photo">

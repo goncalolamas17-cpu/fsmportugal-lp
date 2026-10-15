@@ -459,6 +459,21 @@
     .tabs{flex-wrap:wrap; overflow:visible; justify-content:center; gap:.45rem; margin-inline:0; padding:0 0 .4rem; -webkit-mask-image:none; mask-image:none;}
     .tabs button{padding:.5rem .85rem; font-size:.86rem;}
   }
+  /* telemóvel: quem somos com a foto à direita */
+  @media (max-width:600px){
+    .quem-grid{grid-template-columns:minmax(0,1fr) 116px; column-gap:1rem; row-gap:0; align-items:start;}
+    .quem-text{display:contents;}
+    .quem .pill{grid-column:1; grid-row:1; justify-self:start;}
+    .quem h2{grid-column:1; grid-row:2; margin:.7rem 0 .6rem;}
+    .quem p.bio{grid-column:1/-1; font-size:.95rem; margin-bottom:.7rem;}
+    .quem p.bio:nth-of-type(1){grid-column:1; grid-row:3;}
+    .quem p.bio:nth-of-type(2){grid-row:4;}
+    .quem p.bio:nth-of-type(3){grid-row:5;}
+    .quem .btn{grid-column:1/-1; grid-row:6; justify-self:start; margin-top:.5rem;}
+    .quem-photo{grid-column:2; grid-row:1/4; width:116px; aspect-ratio:3/4; border-radius:14px; margin:0; align-self:start;}
+    .quem-photo img{object-position:center 18%;}
+    .quem-photo .tag{left:.4rem; right:.4rem; bottom:.4rem; padding:.3rem .4rem; font-size:.68rem; text-align:center; border-radius:6px;}
+  }
   /* telemóvel: antes e depois lado a lado, linhas alinhadas */
   @media (max-width:739px){
     .cols{grid-template-columns:1fr 1fr; grid-template-rows:auto auto repeat(4,auto); gap:0 .6rem;}

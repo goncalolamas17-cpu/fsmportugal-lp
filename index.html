@@ -459,6 +459,15 @@
     .tabs{flex-wrap:wrap; overflow:visible; justify-content:center; gap:.45rem; margin-inline:0; padding:0 0 .4rem; -webkit-mask-image:none; mask-image:none;}
     .tabs button{padding:.5rem .85rem; font-size:.86rem;}
   }
+  /* telemóvel: antes e depois lado a lado, linhas alinhadas */
+  @media (max-width:739px){
+    .cols{grid-template-columns:1fr 1fr; grid-template-rows:auto auto repeat(4,auto); gap:0 .6rem;}
+    .tcard{display:grid; grid-template-rows:subgrid; grid-row:span 6; padding:0 .75rem .3rem; row-gap:0;}
+    .tcard-photo{aspect-ratio:5/3; margin:0 -.75rem .8rem;}
+    .tcard h3{font-size:.95rem; margin-bottom:.7rem;}
+    .tcard ul{display:contents;}
+    .tcard li{font-size:.85rem; line-height:1.35; gap:.4rem; padding-bottom:.75rem; align-self:start;}
+  }
   /* telemóvel: botões à esquerda, telemóvel à direita, texto por cima */
   @media (max-width:640px){
     .destaque-grid{grid-template-columns:104px minmax(0,1fr); column-gap:.7rem; row-gap:0; align-items:start;}

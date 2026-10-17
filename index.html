@@ -220,6 +220,15 @@
   .tabs button:active{transform:translateY(2px); box-shadow:0 1px 0 color-mix(in srgb, var(--ink) 16%, transparent);}
   .tabs button[aria-selected="true"]{box-shadow:0 3px 0 color-mix(in srgb, var(--accent-fill) 55%, #000), 0 8px 14px -8px rgba(11,59,55,.4);}
   .tabs button[aria-selected="true"]::after{opacity:1;}
+  .tabs button .ti{display:inline-flex; flex:none;}
+  .tabs button .tl{flex:1 1 auto; text-align:left;}
+  .tabs button .ti svg{display:block;}
+  @media (max-width:640px){
+    .destaque-grid{grid-template-columns:112px minmax(0,1fr)!important;}
+    .tabs button{gap:.4rem; padding:.55rem .5rem!important;}
+    .tabs button::after{display:none;}
+    .tabs button .ti svg{width:16px; height:16px;}
+  }
   .dpane h3{font-size:1.35rem; line-height:1.2; margin-bottom:.6rem;}
   .dpane p{color:var(--ink-soft); max-width:56ch; margin-bottom:1.4rem;}
   @media (max-width:859px){
@@ -1080,6 +1089,15 @@
       shot:"Calculadora do FSM", img:"/img/1c672a2b1109.jpg", imgMobile:"/img/6a82b9a75d61.jpg", imgMobileNav:"/img/3f58215e699c.jpg" }
 
   ];
+  var TAB_ICONS = {
+    "Painel": "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"9\" rx=\"1.5\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"5\" rx=\"1.5\"/><rect x=\"14\" y=\"12\" width=\"7\" height=\"9\" rx=\"1.5\"/><rect x=\"3\" y=\"16\" width=\"7\" height=\"5\" rx=\"1.5\"/></svg>",
+    "Nada esquecido": "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9\"/><path d=\"M10.3 21a1.9 1.9 0 0 0 3.4 0\"/></svg>",
+    "Clientes": "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.9\"/><path d=\"M16 3.1a4 4 0 0 1 0 7.8\"/></svg>",
+    "Tarefas": "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m3 6 2 2 4-4\"/><path d=\"m3 14 2 2 4-4\"/><path d=\"M13 6h8\"/><path d=\"M13 14h8\"/><path d=\"M3 21h.01\"/><path d=\"M13 21h8\"/></svg>",
+    "Agenda": "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18\"/></svg>",
+    "Orçamentos": "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg>",
+    "Preço certo": "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"2\" width=\"16\" height=\"20\" rx=\"2\"/><path d=\"M8 6h8\"/><path d=\"M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01\"/></svg>"
+  };
   var tabs = document.querySelector(".tabs");
   var elTitle = document.querySelector("[data-f-title]");
   var elBody = document.querySelector("[data-f-body]");
@@ -1100,7 +1118,10 @@
   else window.addEventListener("load", preloadShots);
   FEATURES.forEach(function(f, i){
     var b = document.createElement("button");
-    b.type = "button"; b.role = "tab"; b.textContent = f.tab;
+    b.type = "button"; b.role = "tab";
+    var ic = document.createElement("span"); ic.className = "ti"; ic.setAttribute("aria-hidden", "true"); ic.innerHTML = TAB_ICONS[f.tab] || "";
+    var lb = document.createElement("span"); lb.className = "tl"; lb.textContent = f.tab;
+    b.appendChild(ic); b.appendChild(lb);
     b.setAttribute("aria-selected", i === 0 ? "true" : "false");
     b.addEventListener("click", function(){ show(i); });
     tabs.appendChild(b);

@@ -213,6 +213,13 @@
     .tabs button{width:auto; flex:none; white-space:nowrap; padding:.62rem 1.05rem; scroll-snap-align:start;}
   }
   .tabs button[aria-selected="true"]{background:var(--accent-fill); color:var(--tint); border-color:var(--accent-fill);}
+  /* separadores com ar de botão: relevo, seta e feedback ao toque */
+  .tabs button{display:flex; align-items:center; justify-content:space-between; gap:.5rem; border-color:color-mix(in srgb, var(--ink) 20%, var(--line)); box-shadow:0 3px 0 color-mix(in srgb, var(--ink) 16%, transparent), 0 8px 14px -8px rgba(11,59,55,.3);}
+  .tabs button::after{content:""; flex:none; width:7px; height:7px; border-right:2px solid currentColor; border-top:2px solid currentColor; transform:rotate(45deg); opacity:.5;}
+  .tabs button:hover{box-shadow:0 4px 0 color-mix(in srgb, var(--ink) 18%, transparent), 0 10px 16px -8px rgba(11,59,55,.35);}
+  .tabs button:active{transform:translateY(2px); box-shadow:0 1px 0 color-mix(in srgb, var(--ink) 16%, transparent);}
+  .tabs button[aria-selected="true"]{box-shadow:0 3px 0 color-mix(in srgb, var(--accent-fill) 55%, #000), 0 8px 14px -8px rgba(11,59,55,.4);}
+  .tabs button[aria-selected="true"]::after{opacity:1;}
   .dpane h3{font-size:1.35rem; line-height:1.2; margin-bottom:.6rem;}
   .dpane p{color:var(--ink-soft); max-width:56ch; margin-bottom:1.4rem;}
   @media (max-width:859px){

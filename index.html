@@ -156,6 +156,9 @@
   .phone-navbar .nv.on{color:#2bb3a3;}
 
   .phone-navbar .nav-hotspot{height:100%;}
+  /* fim do ecrã do telemóvel: o conteúdo desvanece-se em vez de parecer cortado */
+  .phone-navbar{overflow:visible;}
+  .phone-navbar::before{content:""; position:absolute; left:0; right:0; bottom:100%; height:34px; background:linear-gradient(to bottom, rgba(248,250,252,0), #f8fafc 85%); pointer-events:none;}
   @keyframes tapRipple{to{transform:translate(-50%,-50%) scale(1); opacity:0;}}
 
 

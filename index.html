@@ -278,6 +278,11 @@
   .tm-who{display:flex; align-items:center; gap:.8rem; margin-top:.4rem;}
   .tm-who img{width:64px; height:64px; border-radius:50%; object-fit:cover; border:3px solid var(--accent); flex:none; display:block;}
   .tm-card .tm-who .tm-by{margin:0;}
+  .tm-who-c{justify-content:center; margin:0 auto 1.4rem; text-align:left;}
+  .tm-who-c .tm-by span{display:block; margin-top:.15rem; font-weight:500; font-size:.8rem; color:var(--ink-soft);}
+  .tm-stat strong{font-size:2.8rem;}
+  .tm-stat{padding:1.4rem 1rem;}
+  .tm-how{max-width:46ch; margin:1.2rem auto 0; color:var(--ink-soft);}
   .tm-nota{margin:.9rem auto 0; font-size:.78rem; color:var(--ink-soft);}
   @media (max-width:600px){
     .testemunho{padding-top:2rem; padding-bottom:2rem;}
@@ -758,17 +763,13 @@
 <section class="testemunho" id="testemunho">
   <div class="wrap">
     <span class="eyebrow">Testemunho</span>
-    <h2>Quem só faz biscates também sente a diferença.</h2>
-    <p class="tm-ctx">Esta pessoa usa o FSM em biscates: no máximo ao sábado e até 4 horas ao fim do dia, durante a semana. Mesmo com tão pouco tempo de trabalho, estas são as contas dele.</p>
+    <h2>Só com biscates, já poupa isto.</h2>
+    <div class="tm-who tm-who-c"><img src="/img/testemunho.jpg" width="64" height="64" loading="lazy" decoding="async" alt="Utilizador do FSM que faz biscates"><p class="tm-by">Faz biscates e usa o FSM<span>No máximo ao sábado e até 4 horas ao fim do dia</span></p></div>
     <div class="tm-stats">
       <div class="tm-stat"><strong>~40&nbsp;€</strong><span>poupados por mês em gasóleo e viagens</span></div>
-      <div class="tm-stat"><strong>~8&nbsp;h</strong><span>por mês que já não gasta a fazer contas no caderno</span></div>
+      <div class="tm-stat"><strong>~8&nbsp;h</strong><span>poupadas por mês em contas no caderno</span></div>
     </div>
-    <div class="tm-card">
-      <p>Usa sobretudo os <strong>apontamentos por cliente</strong> e o <strong>calendário</strong>. Com o calendário coordena melhor as compras de material, faz menos viagens e poupa cerca de 10&nbsp;€ por semana em gasóleo.</p>
-      <p>Antes, sentava-se todos os dias a fazer as contas no caderno, cerca de 2 horas por semana. Agora regista logo na app e fica a saber como estão as contas, sem dores de cabeça.</p>
-      <div class="tm-who"><img src="/img/testemunho.jpg" width="64" height="64" loading="lazy" decoding="async" alt="Utilizador do FSM que faz biscates"><p class="tm-by">Faz biscates e usa o FSM</p></div>
-    </div>
+    <p class="tm-how">Com o calendário junta as compras de material e faz menos viagens. As contas ficam feitas na hora.</p>
     <p class="tm-nota">Valores aproximados, estimados por ele. Cada caso é diferente.</p>
   </div>
 </section>

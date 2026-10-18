@@ -168,6 +168,7 @@
   .ecra-x{all:unset; box-sizing:border-box; cursor:pointer; position:absolute; top:.6rem; right:.6rem; width:38px; height:38px; border-radius:50%; background:#111816; color:#fff; display:grid; place-items:center; font-size:1.4rem; line-height:1; z-index:2;}
   .ecra-x:focus-visible{outline:2px solid #fff; outline-offset:2px;}
   html.ecra-aberto{overflow:hidden;}
+  .img-fade{position:absolute; left:0; right:0; z-index:3; pointer-events:none; display:none; background:linear-gradient(to bottom, rgba(248,250,252,0), #f8fafc);}
   /* captura que já traz a barra de baixo: a barra desenhada fica invisível e só serve de zona de toque */
   .nav-baked .phone-navbar{background:transparent; border-top:0;}
   .nav-baked .phone-navbar::before{display:none;}
@@ -1224,6 +1225,14 @@
           renderedH = availH;
         }
       }
+      var fadeEl = container.querySelector(".img-fade");
+      if (!fadeEl){ fadeEl = document.createElement("div"); fadeEl.className = "img-fade"; container.appendChild(fadeEl); }
+      if (!centered && renderedH < availH - 1){
+        var fh = Math.min(64, renderedH);
+        fadeEl.style.display = "block";
+        fadeEl.style.height = fh + "px";
+        fadeEl.style.top = (renderedH - fh) + "px";
+      } else { fadeEl.style.display = "none"; }
       maxOffset = Math.max(0, renderedH - availH);
       offset = Math.min(offset, maxOffset);
       apply();

@@ -156,6 +156,18 @@
   .phone-navbar .nv.on{color:#2bb3a3;}
 
   .phone-navbar .nav-hotspot{height:100%;}
+  /* ver o ecrã completo */
+  .ver-ecra{all:unset; box-sizing:border-box; cursor:pointer; display:block; width:max-content; max-width:100%; text-align:center; margin:.7rem auto 0; white-space:nowrap; font-size:.85rem; font-weight:600; color:var(--accent-ink); text-decoration:underline; text-underline-offset:3px; padding:.4rem .6rem;}
+  .ver-ecra[hidden]{display:none;}
+  .ver-ecra:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:6px;}
+  .ecra-modal{position:fixed; inset:0; z-index:60; background:rgba(12,28,22,.72); display:flex; align-items:center; justify-content:center; padding:1rem;}
+  .ecra-modal[hidden]{display:none;}
+  .ecra-box{position:relative; width:min(92vw,400px); height:min(88vh,780px); background:#f8fafc; border-radius:24px; overflow:hidden; border:6px solid #111816;}
+  .ecra-scroll{height:100%; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain;}
+  .ecra-scroll img{display:block; width:100%; height:auto;}
+  .ecra-x{all:unset; box-sizing:border-box; cursor:pointer; position:absolute; top:.6rem; right:.6rem; width:38px; height:38px; border-radius:50%; background:#111816; color:#fff; display:grid; place-items:center; font-size:1.4rem; line-height:1; z-index:2;}
+  .ecra-x:focus-visible{outline:2px solid #fff; outline-offset:2px;}
+  html.ecra-aberto{overflow:hidden;}
   /* fim do ecrã do telemóvel: o conteúdo desvanece-se em vez de parecer cortado */
   .phone-navbar{overflow:visible;}
   .phone-navbar::before{content:""; position:absolute; left:0; right:0; bottom:100%; height:22px; background:linear-gradient(to bottom, rgba(248,250,252,0), #f8fafc 90%); pointer-events:none;}
@@ -588,6 +600,7 @@
     .destaque-right .shot{grid-column:2; grid-row:4; min-width:0;}
     .shot.is-mobile{padding:0;}
     .tap-hint{grid-column:1/-1; grid-row:5;}
+    .ver-ecra{grid-column:1/-1; grid-row:6; justify-self:center;}
   }
 </style>
 
@@ -703,6 +716,7 @@
           <span class="dot" aria-hidden="true"></span>
           Experimenta — toca na app para navegar
         </p>
+        <button type="button" class="ver-ecra" data-ver-ecra hidden>Ver o ecrã completo</button>
       </div>
     </div>
   </div>
@@ -1070,6 +1084,12 @@
   </div>
 </section>
 
+<div class="ecra-modal" id="ecra-modal" role="dialog" aria-modal="true" aria-label="Ecrã completo da app" hidden>
+  <div class="ecra-box">
+    <button type="button" class="ecra-x" aria-label="Fechar">&times;</button>
+    <div class="ecra-scroll"><img id="ecra-img" alt=""></div>
+  </div>
+</div>
 <div class="cookiebar" id="cookiebar" hidden>
   <p>Usamos cookies estritamente necessários e, com o teu consentimento, cookies analíticos. Sabe mais na <a class="inline" style="color:#fff;" href="#cookies">Política de Cookies</a> e na <a class="inline" style="color:#fff;" href="#privacidade">Política de Privacidade</a>.</p>
   <div class="actions">
@@ -1132,6 +1152,7 @@
   var elBody = document.querySelector("[data-f-body]");
   var elShot = document.querySelector("[data-f-shot]");
   var elTapHint = document.querySelector("[data-tap-hint]");
+  var elVer = document.querySelector("[data-ver-ecra]");
   var preloaded = [];
   function preloadShots(){
     FEATURES.forEach(function(f){
@@ -1324,6 +1345,7 @@
     elShot.classList.remove("has-img", "is-mobile");
     elShot.innerHTML = "";
     elTapHint.hidden = !(currentView === "mobile" && f.imgMobile);
+    elVer.hidden = elTapHint.hidden;
     if (currentView === "mobile"){
       elShot.classList.add("is-mobile");
       var frame = document.createElement("div");
@@ -1380,6 +1402,30 @@
     if (chip && tabs.scrollWidth > tabs.clientWidth) tabs.scrollTo({left: chip.offsetLeft - 16, behavior: "smooth"});
   }
   show(0);
+  // Ver o ecrã completo: janela com a captura inteira, a deslizar.
+  var ecraModal = document.getElementById("ecra-modal");
+  var ecraImg = document.getElementById("ecra-img");
+  var ecraX = ecraModal.querySelector(".ecra-x");
+  function fecharEcra(){
+    if (ecraModal.hidden) return;
+    ecraModal.hidden = true;
+    document.documentElement.classList.remove("ecra-aberto");
+    ecraImg.removeAttribute("src");
+    elVer.focus();
+  }
+  elVer.addEventListener("click", function(){
+    var f = FEATURES[currentIndex];
+    if (!f.imgMobile) return;
+    ecraImg.src = f.imgMobile;
+    ecraImg.alt = f.shot + " (ecrã completo)";
+    ecraModal.querySelector(".ecra-scroll").scrollTop = 0;
+    ecraModal.hidden = false;
+    document.documentElement.classList.add("ecra-aberto");
+    ecraX.focus();
+  });
+  ecraX.addEventListener("click", fecharEcra);
+  ecraModal.addEventListener("click", function(e){ if (e.target === ecraModal) fecharEcra(); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") fecharEcra(); });
   // Altura do bloco de texto = a do texto mais comprido, para o telemóvel não se mexer ao mudar de botão.
   var elPane = document.querySelector(".dpane");
   function fixarAlturaTexto(){

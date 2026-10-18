@@ -277,7 +277,10 @@
   .tm-card p strong{color:var(--ink);}
   .tm-card .tm-by{margin:.2rem 0 0; font-size:.85rem; font-weight:700; color:var(--accent-ink);}
   .tm-who{display:flex; align-items:center; gap:.8rem; margin-top:.4rem;}
-  .tm-who img{width:64px; height:64px; border-radius:50%; object-fit:cover; border:3px solid var(--accent); flex:none; display:block;}
+  .tm-who img{width:112px; height:112px; border-radius:50%; object-fit:cover; border:4px solid var(--accent); flex:none; display:block;}
+  .tm-who-c{gap:1.1rem;}
+  .tm-who-c .tm-by{font-size:1.05rem;}
+  @media (max-width:600px){ .tm-who img{width:92px; height:92px; border-width:3px;} .tm-who-c{gap:.9rem;} }
   .tm-card .tm-who .tm-by{margin:0;}
   .tm-who-c{justify-content:center; margin:0 auto 1.4rem; text-align:left;}
   .tm-who-c .tm-by span{display:block; margin-top:.15rem; font-weight:500; font-size:.8rem; color:var(--ink-soft);}
@@ -705,7 +708,7 @@
   <div class="wrap">
     <span class="eyebrow">Testemunho</span>
     <h2>Só com biscates, já poupa isto.</h2>
-    <div class="tm-who tm-who-c"><img src="/img/testemunho.jpg" width="64" height="64" loading="lazy" decoding="async" alt="Daniel Barbosa, utilizador do FSM que faz biscates"><p class="tm-by">Faz biscates e usa o FSM<span>Daniel Barbosa</span></p></div>
+    <div class="tm-who tm-who-c"><img src="/img/testemunho.jpg" width="112" height="112" loading="lazy" decoding="async" alt="Daniel Barbosa, utilizador do FSM que faz biscates"><p class="tm-by">Faz biscates e usa o FSM<span>Daniel Barbosa</span></p></div>
     <div class="tm-stats">
       <div class="tm-stat"><strong>~40&nbsp;€</strong><span>poupados por mês em gasóleo e viagens</span></div>
       <div class="tm-stat"><strong>~8&nbsp;h</strong><span>poupadas por mês em contas no caderno</span></div>

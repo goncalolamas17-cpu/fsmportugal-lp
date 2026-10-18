@@ -93,7 +93,8 @@
   .hero-inner{display:grid; gap:2.6rem; align-items:center;}
   @media (min-width:960px){ .hero-inner{grid-template-columns:1.05fr .95fr; align-items:start;} }
   .hero h1{font-size:clamp(2.1rem,5.6vw,3.15rem); margin:.9rem 0 1rem; max-width:20ch;}
-  .hero h1 .hl{background:linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 42%, transparent) 62% 92%, transparent 92%); padding:0 .06em; -webkit-box-decoration-break:clone; box-decoration-break:clone;}
+  h1 .hl, h2 .hl{background:linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 42%, transparent) 62% 92%, transparent 92%); padding:0 .06em; -webkit-box-decoration-break:clone; box-decoration-break:clone;}
+  .final .hl{background:linear-gradient(transparent 62%, rgba(255,255,255,.28) 62% 92%, transparent 92%);}
   .hero p.lede{font-size:clamp(1.02rem,1.7vw,1.15rem); color:var(--ink-soft); max-width:46ch;}
   .hero .lede strong{color:var(--ink); font-weight:700;}
   .hero .actions{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.6rem;}
@@ -638,7 +639,7 @@
 <section class="como">
   <div class="wrap-wide">
     <span class="eyebrow">Como funciona</span>
-    <h2>Três passos e o teu negócio está a andar.</h2>
+    <h2><span class="hl">Três passos</span> e o teu negócio está a andar.</h2>
     <ol>
       <li><div class="como-photo"><div class="como-art" role="img" aria-label="Checklist de configuração do negócio, custos e horário, com apoio por chamada">
 <svg viewBox="0 0 400 300" aria-hidden="true">
@@ -707,7 +708,7 @@
 <section class="testemunho" id="testemunho">
   <div class="wrap">
     <span class="eyebrow">Testemunho</span>
-    <h2>Só com biscates, já poupa isto.</h2>
+    <h2>Só com biscates, <span class="hl">já poupa</span> isto.</h2>
     <div class="tm-who tm-who-c"><img src="/img/testemunho.jpg" width="112" height="112" loading="lazy" decoding="async" alt="Daniel Barbosa, utilizador do FSM que faz biscates"><p class="tm-by">Faz biscates e usa o FSM<span>Daniel Barbosa</span></p></div>
     <div class="tm-stats">
       <div class="tm-stat"><strong>~40&nbsp;€</strong><span>poupados por mês em gasóleo e viagens</span></div>
@@ -721,7 +722,7 @@
   <div class="wrap-wide">
     <div class="head">
       <span class="eyebrow">A diferença</span>
-      <h2>Antes e depois do FSM.</h2>
+      <h2>Antes e <span class="hl">depois</span> do FSM.</h2>
       <p class="sub">O que muda no teu dia a dia de trabalho.</p>
     </div>
     <div class="cols">
@@ -776,7 +777,7 @@
   <div class="wrap price-grid">
     <div>
       <span class="eyebrow">Preço</span>
-      <h2 style="font-size:clamp(1.7rem,3.6vw,2.3rem); margin:.6rem 0 .8rem;">Um preço simples, por pessoa.</h2>
+      <h2 style="font-size:clamp(1.7rem,3.6vw,2.3rem); margin:.6rem 0 .8rem;">Um preço <span class="hl">simples</span>, por pessoa.</h2>
     </div>
     <div class="price-card">
       <div class="amount">15&nbsp;€ <small>/ mês por utilizador</small></div>
@@ -808,7 +809,7 @@
 
 <section class="final" id="final">
   <div class="wrap">
-    <h2>Deixa o caderno e as folhas soltas.</h2>
+    <h2>Deixa o <span class="hl">caderno</span> e as folhas soltas.</h2>
     <p>Marca 20 minutos. Vês o teu caso, não uma demonstração genérica.</p>
     <form class="lead-form" id="lead-form" novalidate>
       <div class="fld">

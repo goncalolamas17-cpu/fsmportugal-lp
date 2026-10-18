@@ -93,6 +93,7 @@
   .hero-inner{display:grid; gap:2.6rem; align-items:center;}
   @media (min-width:960px){ .hero-inner{grid-template-columns:1.05fr .95fr; align-items:start;} }
   .hero h1{font-size:clamp(2.1rem,5.6vw,3.15rem); margin:.9rem 0 1rem; max-width:20ch;}
+  .hero h1 .hl{background:linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 42%, transparent) 62% 92%, transparent 92%); padding:0 .06em; -webkit-box-decoration-break:clone; box-decoration-break:clone;}
   .hero p.lede{font-size:clamp(1.02rem,1.7vw,1.15rem); color:var(--ink-soft); max-width:46ch;}
   .hero .lede strong{color:var(--ink); font-weight:700;}
   .hero .actions{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.6rem;}
@@ -602,7 +603,7 @@
     <div class="hero-inner">
       <div class="hero-text">
         <span class="eyebrow">Para eletricistas, canalizadores, pintores, empreiteiros e outros ofícios</span>
-        <h1>Organiza os teus clientes. Poupa tempo e dinheiro.</h1>
+        <h1>Organiza os teus clientes. Poupa <span class="hl">tempo</span> e ganha <span class="hl">dinheiro</span>.</h1>
         <p class="lede">Para <strong>biscates</strong>, obras pequenas ou uma equipa de poucos. Marcas 20 minutos, vês o teu caso e sais com tudo configurado.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#final">Ver o meu caso em 20 minutos</a>

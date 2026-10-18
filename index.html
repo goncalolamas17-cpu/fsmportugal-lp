@@ -262,6 +262,32 @@
   .transf .cta{text-align:center; margin-top:2.2rem;}
   .transf .cta p{margin-top:.7rem; font-size:.85rem; color:var(--ink-soft);}
 
+  /* testemunho */
+  .testemunho{background:var(--tint); border-top:1px solid var(--line); padding:clamp(3rem,7vw,4.5rem) 0;}
+  .testemunho .wrap{max-width:820px; text-align:center;}
+  .testemunho h2{font-size:clamp(1.6rem,3.4vw,2.2rem); margin:.6rem auto .9rem; max-width:22ch;}
+  .tm-ctx{color:var(--ink-soft); max-width:56ch; margin:0 auto 1.6rem;}
+  .tm-stats{display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:0 auto 1.4rem; max-width:620px;}
+  .tm-stat{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:1.1rem .9rem; box-shadow:0 10px 26px -18px rgba(11,59,55,.35);}
+  .tm-stat strong{display:block; font-family:var(--serif); font-weight:600; font-size:2.2rem; line-height:1.1; color:var(--accent-ink); letter-spacing:-.02em;}
+  .tm-stat span{display:block; margin-top:.35rem; font-size:.88rem; color:var(--ink-soft); line-height:1.35;}
+  .tm-card{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:1.4rem 1.5rem; text-align:left; max-width:620px; margin:0 auto;}
+  .tm-card p{margin:0 0 .8rem; color:var(--ink-soft);}
+  .tm-card p strong{color:var(--ink);}
+  .tm-card .tm-by{margin:.2rem 0 0; font-size:.85rem; font-weight:700; color:var(--accent-ink);}
+  .tm-nota{margin:.9rem auto 0; font-size:.78rem; color:var(--ink-soft);}
+  @media (max-width:600px){
+    .testemunho{padding-top:2rem; padding-bottom:2rem;}
+    .testemunho h2{font-size:1.5rem;}
+    .tm-ctx{font-size:.92rem; margin-bottom:1.1rem;}
+    .tm-stats{gap:.6rem; margin-bottom:1rem;}
+    .tm-stat{padding:.8rem .6rem;}
+    .tm-stat strong{font-size:1.7rem;}
+    .tm-stat span{font-size:.78rem;}
+    .tm-card{padding:1rem 1.05rem;}
+    .tm-card p{font-size:.9rem;}
+  }
+
   /* vídeo / testemunho */
   .video-sec[hidden]{display:none;}
   .video-sec{background:var(--tint); border-top:1px solid var(--line); padding:clamp(3rem,7vw,4.5rem) 0;}
@@ -723,6 +749,24 @@
       <a class="btn btn-primary" href="#final">Marcar demonstração</a>
       <p>20 minutos, sem compromisso.</p>
     </div>
+  </div>
+</section>
+
+<section class="testemunho" id="testemunho">
+  <div class="wrap">
+    <span class="eyebrow">Testemunho</span>
+    <h2>Quem só faz biscates também sente a diferença.</h2>
+    <p class="tm-ctx">O meu irmão usa o FSM em biscates: no máximo ao sábado e até 4 horas ao fim do dia, durante a semana. Mesmo com tão pouco tempo de trabalho, estas são as contas dele.</p>
+    <div class="tm-stats">
+      <div class="tm-stat"><strong>~40&nbsp;€</strong><span>poupados por mês em gasóleo e viagens</span></div>
+      <div class="tm-stat"><strong>~8&nbsp;h</strong><span>por mês que já não gasta a fazer contas no caderno</span></div>
+    </div>
+    <div class="tm-card">
+      <p>Usa sobretudo os <strong>apontamentos por cliente</strong> e o <strong>calendário</strong>. Com o calendário coordena melhor as compras de material, faz menos viagens e poupa cerca de 10&nbsp;€ por semana em gasóleo.</p>
+      <p>Antes, sentava-se todos os dias a fazer as contas no caderno, cerca de 2 horas por semana. Agora regista logo na app e fica a saber como estão as contas, sem dores de cabeça.</p>
+      <p class="tm-by">Irmão do fundador · faz biscates</p>
+    </div>
+    <p class="tm-nota">Valores aproximados, estimados por ele. Cada caso é diferente.</p>
   </div>
 </section>
 
